@@ -48,6 +48,10 @@ class DetailActivity : AppCompatActivity() {
         Picasso.get().load(apod.url).into(ivDetail)
         tvExplanation.text = apod.explanation
         tvDate.text = apod.date
+
+        ivDetail.setOnClickListener {
+            openHD(apod)
+        }
     }
 
     private fun configureToolbar() {
@@ -60,5 +64,9 @@ class DetailActivity : AppCompatActivity() {
         this.setSupportActionBar(toolbar)
         supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    fun openHD(apod: Apod){
+        Navigator.openHD(this, apod)
     }
 }
