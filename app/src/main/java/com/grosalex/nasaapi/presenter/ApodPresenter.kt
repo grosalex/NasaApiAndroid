@@ -36,10 +36,8 @@ class ApodPresenter(val view: ApodContract.View, val provider: ApodContract.Prov
     }
 
     override fun shouldLoadNext(oldDate: String): Boolean {
-/*        val date = format.parse(oldDate)
-        return getDaysDifference(date, today) < DAYS_TO_LOAD*/
-        count++
-        return count < DAYS_TO_LOAD
+        val date = format.parse(oldDate)
+        return getDaysDifference(date, today) < DAYS_TO_LOAD
     }
 
     private fun getDaysDifference(fromDate: Date?, toDate: Date?): Long {
@@ -48,6 +46,6 @@ class ApodPresenter(val view: ApodContract.View, val provider: ApodContract.Prov
 
     companion object {
         const val DAYS_TO_LOAD = 9
-        const val DATE_PATTERN = "YYYY-MM-dd"
+        const val DATE_PATTERN = "yyyy-MM-dd"
     }
 }
