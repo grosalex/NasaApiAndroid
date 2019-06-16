@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.grosalex.nasaapi.Navigator
 import com.grosalex.nasaapi.R
 import com.grosalex.nasaapi.model.Apod
 import com.squareup.picasso.Picasso
@@ -15,5 +16,8 @@ class ApodViewHolder(parent: ViewGroup) : RecyclerView.ViewHolder(
     private val ivApod: ImageView = itemView.findViewById(R.id.iv_apod)
     fun bind(apod: Apod) {
         Picasso.get().load(apod.url).into(ivApod)
+        itemView.setOnClickListener {
+            Navigator.openDetail(it.context, apod)
+        }
     }
 }
