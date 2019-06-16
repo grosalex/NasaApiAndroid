@@ -45,7 +45,7 @@ class ApodPresenter(val view: ApodContract.View, val provider: ApodContract.Prov
     }
 
     companion object {
-        const val DAYS_TO_LOAD = 9
+        const val DAYS_TO_LOAD = 30
         const val DATE_PATTERN = "yyyy-MM-dd"
     }
 }
